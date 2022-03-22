@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/models/task_data.dart';
+
+import 'add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -16,6 +19,7 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTaskScreen(),
               ),
             ),
           );
@@ -43,7 +47,7 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Задачи',
+                  'Задач: ${Provider.of<TaskData>(context).taskCount}',
                   style: const TextStyle(
                     fontSize: 20.0,
                     color: Colors.white,
